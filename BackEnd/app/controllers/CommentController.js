@@ -9,10 +9,17 @@ export default class CommentController {
     this.router = express.Router()
       .get('', this.getAllComments)
       .get('/:id', this.getComment)
+      .get('/:postId/post-comments', this.getCommentsByPost)
       .post('', this.createComment)
       .delete('/:id', this.deleteComment)
       .put('/:id', this.voteComment)
       .use('*', this.defaultRoute)
+  }
+  async  getCommentsByPost(req, res, next) {
+    try {
+      let comments = await _repo.find({ postId: req.params.postId }).populate('authorId')
+      return res.send(comments)
+    } catch (error) { next(error) }
   }
   async getAllComments(req, res, next) {
     try {

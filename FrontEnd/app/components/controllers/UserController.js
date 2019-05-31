@@ -2,10 +2,9 @@ import UserService from "../services/UserService.js";
 
 const _userService = new UserService()
 
-function _drawUser(name) {
-  debugger
+function _drawUser() {
   let user = _userService.User
-  let template = user.name.userTemplate
+  let template = user.userTemplate
   document.getElementById('user-greeting').innerText = template
 }
 

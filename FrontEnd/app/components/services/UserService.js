@@ -19,6 +19,7 @@ function setState(prop, data) {
 
 export default class UserService {
   get User() {
+    debugger
     return _state.user
   }
 

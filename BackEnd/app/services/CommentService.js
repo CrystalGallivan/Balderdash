@@ -8,7 +8,6 @@ let _schema = new mongoose.Schema({
   description: { type: String, required: true },
   upVotes: { type: Number, required: true, default: 0 },
   downVotes: { type: Number, required: true, default: 0 }
-
 }, { timestamps: true })
 
 
