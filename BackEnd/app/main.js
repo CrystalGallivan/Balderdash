@@ -12,9 +12,11 @@ server.use(bp.json())
 //register routes
 
 import UserController from './controllers/UserController';
+import GIFController from './controllers/GIFController';
+
 
 server.use('/api/users', new UserController().router)
-
+server.use('/api/gif', new GIFController().router)
 
 
 //default error handler

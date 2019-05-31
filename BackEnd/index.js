@@ -1,4 +1,2 @@
 require = require('esm')(module)
-module.exports = require('.')
-
-
+module.exports = require('./app/main.js')
