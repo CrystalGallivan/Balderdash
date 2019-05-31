@@ -1,7 +1,7 @@
 import Post from "../../models/Post.js";
 
 const postApi = axios.create({
-  baseURL: 'localhost:3000/api/posts'
+  baseURL: '//localhost:3000/api/posts'
 })
 
 let _state = {

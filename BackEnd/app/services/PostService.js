@@ -10,8 +10,8 @@ let _schema = new mongoose.Schema({
 
 
 
-export default class GIFService {
+export default class PostService {
   get repository() {
-    return mongoose.model("gif", _schema)
+    return mongoose.model("post", _schema)
   }
 }

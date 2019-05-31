@@ -1,3 +1,4 @@
+import cors from 'cors'
 import express from 'express'
 import './db/dbconfig'
 
@@ -7,17 +8,18 @@ let bp = require('body-parser')
 
 server.use(bp.urlencoded({ extended: true }))
 server.use(bp.json())
+server.use(cors())
 
 
 //register routes
 
 import UserController from './controllers/UserController';
-import GIFController from './controllers/GIFController';
+import PostController from './controllers/PostController';
 import CommentController from './controllers/CommentController';
 
 
 server.use('/api/users', new UserController().router)
-server.use('/api/gif', new GIFController().router)
+server.use('/api/posts', new PostController().router)
 server.use('/api/comments', new CommentController().router)
 
 //default error handler

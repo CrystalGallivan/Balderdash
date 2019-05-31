@@ -1,7 +1,7 @@
 import User from "../../models/User.js";
 
 const userApi = axios.create({
-  baseURL: 'localhost:3000/api/users'
+  baseURL: '//localhost:3000/api/users'
 })
 
 let _state = {
