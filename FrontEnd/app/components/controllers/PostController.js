@@ -1,4 +1,4 @@
-import PostService from "../services/PostService";
+import PostService from "../services/PostService.js";
 
 const _postService = new PostService()
 

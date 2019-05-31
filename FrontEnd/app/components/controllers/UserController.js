@@ -3,7 +3,8 @@ import UserService from "../services/UserService.js";
 const _userService = new UserService()
 
 function _drawUser() {
-
+  let template = _userService.User.userTemplate
+  document.getElementById('user-greeting').innerHTML = template
 }
 
 export default class UserController {
@@ -16,7 +17,7 @@ export default class UserController {
     event.preventDefault()
     var form = event.target
     var user = {
-      name: form.user.name.value
+      name: form.name.value
     }
     form.reset()
     _userService.addUser(user)

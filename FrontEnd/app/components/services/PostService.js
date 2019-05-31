@@ -46,7 +46,7 @@ export default class PostService {
   }
 
   removePost(postId) {
-    let post = _state.posts.find(post => posts.id == postId)
+    let post = _state.posts.find(post => post.id == postId)
     postApi.delete(postId, post)
       .then(res => {
         this.getPost()

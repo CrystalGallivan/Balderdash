@@ -4,6 +4,6 @@ export default class User {
   }
 
   get userTemplate() {
-
+    return `<h6> Hello ${this.name}! </h6>`
   }
 }

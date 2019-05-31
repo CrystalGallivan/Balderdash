@@ -12,7 +12,120 @@
 </head>
 
 <body>
+  <header class="nav" style="height: 5vw;">
+  </header>
+  <main class="container-fluid">
+    <div class="row" style="height: 55vw;">
+      <div class="col-3" id="user-data">
+        <div class="row" style="height: 2vw;">
+          <div class="col-12 text-center" id="user-greeting">
+          </div>
+        </div>
+        <form onsubmit="app.controllers.userController.addUser(event)">
+          <div class="form-row align-items-center justify-content-around">
+            <div class="col-auto">
+              <label class="sr-only" for="inlineFormInput">User Name</label>
+              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="What's your Username?"
+                name="name">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-2">Submit</button>
+            </div>
+          </div>
+        </form>
+        <div class="row" id="post-init">
+          <div class="col-12 mt-5 mb-5"></div>
+          <div class="col-12 text-center">
+            <h6>Create A Post</h6>
+          </div>
+        </div>
+        <form onsubmit="app.controllers.postController.addPost(event)">
+          <div class="row justify-content-center mt-2" id="post-input">
+            <div class="col-11">
+              <div class="form-row">
+                <div class="col-auto">
+                  <h6>Type of Post:</h6>
+                </div>
+                <div class="col-auto"></div>
+                <div class="col-auto">
+                  <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="post-type" id="img" value="img" checked>
+                    <label class="form-check-label" for="img">
+                      Image
+                    </label>
+                  </div>
+                  <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="post-type" id="gif" value="gif">
+                    <label class="form-check-label" for="gif">
+                      GIF
+                    </label>
+                  </div>
+                  <div class="form-check-inline">
+                    <input class="form-check-input" type="radio" name="post-type" id="word" value="word">
+                    <!-- need a function to determine name of input .. if postype word, else  -->
+                    <label class="form-check-label" for="word">
+                      Word
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-auto">
+                  <h6>Add a funny photo, gif, or a fairly unknown word for your friends to comment on.</h6>
+                </div>
+              </div>
+              <div class="row mt-2">
+                <div class="col-auto">
+                  <label for="post-description" id="post-type-label">
+                    URL:
+                  </label>
+                </div>
+                <div class="col-auto">
+                  <input type="text" name="post-description" id="description" class="longer-input">
+                </div>
+              </div>
+              <div class="row">
+                <button type="submit" class="btn btn-primary">Make a Post!</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-9" id="main-page">
+        <div class="row">
+          <div class="col-3 p-3 rounded bg-info">
+            <!-- 
+              image
+              poster name
+              comments vote up vote down
+            -->
+            <div class="row">
+              <div class="col-5">
+                <h6>Poster Name:</h6>
+              </div>
+              <div class="col-7" id="post-username"> placeholder username</div>
+            </div>
+            <div class="row">
+              <img src="http://placehold.it/200x200" alt="">
+            </div>
 
+            <div class="row" id="post-comments">
+              <div class="col-12">
+                comment template
+                <div class="row justify-content-left">
+                  <div class="col-1 bg-success rounded-circle">^</div>
+                  <div class="col-1 bg-danger rounded-circle">V</div>
+                  <div class="col-9">"This"</div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
