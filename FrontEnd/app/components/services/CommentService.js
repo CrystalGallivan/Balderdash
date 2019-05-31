@@ -1,7 +1,7 @@
 import Comment from "../../models/Comment.js";
 
 const commentApi = axios.create({
-  baseURL: 'localhost:3000/api/comments'
+  baseURL: '//localhost:3000/api/comments'
 })
 
 let _state = {
