@@ -5,7 +5,7 @@ const userApi = axios.create({
 })
 
 let _state = {
-  user: []
+  user: {}
 }
 
 let _subscribers = {
@@ -19,6 +19,7 @@ function setState(prop, data) {
 
 export default class UserService {
   get User() {
+    debugger
     return _state.user
   }
 
@@ -39,8 +40,7 @@ export default class UserService {
     userApi.post('', user)
       .then(res => {
         let newUser = new User(res.data)
-        _state.user.push(newUser)
-        this.getUser()
+        setState('user', newUser)
       })
       .catch(err => console.error(err))
   }

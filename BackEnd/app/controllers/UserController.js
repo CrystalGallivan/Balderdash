@@ -11,7 +11,6 @@ export default class UserController {
       .get("/:name", this.getUser)
       .post("", this.createUser)
       .get('', this.getAllUsers)
-      // .delete('/:id', this.deleteUser )
       .use("*", this.defaultRoute)
   }
 

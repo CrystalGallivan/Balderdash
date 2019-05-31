@@ -33,7 +33,7 @@ export default class PostController {
   async createPost(req, res, next) {
     try {
       let Post = await _repo.create(req.body)
-      return res.status(201).send(Post)
+      return res.status(201).send(Post).populate(user)
     } catch (error) { next(error) }
   }
   async deletePost(req, res, next) {
