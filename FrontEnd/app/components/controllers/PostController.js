@@ -3,6 +3,12 @@ import PostService from "../services/PostService.js";
 const _postService = new PostService()
 
 function _drawPost() {
+  let post = _postService.Post
+  let template = ''
+  post.forEach(post => {
+    template += post.postTemplate
+  })
+  document.getElementById('post-body').innerHTML = template
 
 }
 
@@ -17,7 +23,7 @@ export default class PostController {
     var form = event.target
     var post = {
       //might need to change
-      description: form.posts.description.value
+      description: form.url.value
     }
     form.reset()
     _postService.addPost(post)
