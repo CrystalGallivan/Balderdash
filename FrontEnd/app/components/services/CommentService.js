@@ -35,7 +35,7 @@ export default class CommentService {
       .catch(err => console.error(err))
   }
 
-  addComment(comment) {
+  addComment(postId) {
     commentApi.comment('', comment)
       .then(res => {
         let newComment = new Comment(res.data)

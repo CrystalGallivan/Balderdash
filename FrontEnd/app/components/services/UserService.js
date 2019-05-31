@@ -5,7 +5,7 @@ const userApi = axios.create({
 })
 
 let _state = {
-  user: []
+  user: {}
 }
 
 let _subscribers = {
@@ -35,12 +35,21 @@ export default class UserService {
       .catch(err => console.error(err))
   }
 
+  findMyUser(name) {
+    userApi.get()
+      .then(res => {
+        let data = res.data.map(u => new User(u))
+        data.filter(user => data.user.name == name)
+        setState('user', data)
+      })
+      .catch(err => console.error(err))
+  }
+
   addUser(user) {
     userApi.post('', user)
       .then(res => {
         let newUser = new User(res.data)
-        _state.user.push(newUser)
-        this.getUser()
+        setState('user', newUser)
       })
       .catch(err => console.error(err))
   }
