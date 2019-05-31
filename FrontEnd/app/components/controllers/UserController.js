@@ -14,6 +14,16 @@ export default class UserController {
     _userService.getUser()
   }
 
+  findUser(event) {
+    event.preventDefault()
+    var form = event.target
+    var name = {
+      name: form.name.value
+    }
+    form.reset()
+    _userService.findMyUser(name)
+  }
+
   addUser(event) {
     event.preventDefault()
     var form = event.target

@@ -36,6 +36,16 @@ export default class UserService {
       .catch(err => console.error(err))
   }
 
+  findMyUser(name) {
+    userApi.get()
+      .then(res => {
+        let data = res.data.map(u => new User(u))
+        data.filter(user => data.user.name == name)
+        setState('user', data)
+      })
+      .catch(err => console.error(err))
+  }
+
   addUser(user) {
     userApi.post('', user)
       .then(res => {

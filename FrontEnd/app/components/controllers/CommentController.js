@@ -3,6 +3,7 @@ import CommentService from "../services/CommentService.js";
 const _commentService = new CommentService()
 
 function _drawComment() {
+  let template = ''
 
 }
 
@@ -17,10 +18,10 @@ export default class CommentController {
     var form = event.target
     var comment = {
       //might need to change
-      description: form.comments.description.value
+      comment: form.comment.value
     }
     form.reset()
-    _commentService.addComment(comment)
+    _commentService.addComment(postId)
   }
 
   removeComment(commentId) {
