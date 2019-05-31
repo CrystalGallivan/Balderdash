@@ -16,96 +16,156 @@
   </header>
   <main class="container-fluid">
     <div class="row" style="height: 55vw;">
-      <div class="col-3" id="user-data">
-        <div class="row" style="height: 2vw;">
-          <div class="col-12 text-center" id="user-greeting">
+      <div class="col-3 p-0" id="user-data">
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0 text-center">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                  aria-expanded="true" aria-controls="collapseOne" id="user-greeting">
+                  Hello User!
+                </button>
+              </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body" id="user-data">
+                <!-- start -->
+                <form onsubmit="app.controllers.userController.addUser(event)">
+                  <div class="form-row align-items-center justify-content-around">
+                    <div class="col-auto">
+                      <label class="sr-only" for="inlineFormInput">User Name</label>
+                      <input type="text" class="form-control mb-2" id="inlineFormInput"
+                        placeholder="What's your Username?" name="name">
+                    </div>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </div>
+                  </div>
+                </form>
+                <!-- end -->
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingTwo">
+              <h2 class="mb-0 text-center">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                  aria-expanded="false" aria-controls="collapseTwo">
+                  Create A Post
+                </button>
+              </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <!-- start -->
+                <form onsubmit="app.controllers.postController.addPost(event)">
+                  <div class="row justify-content-center mt-2" id="post-input">
+                    <div class="col-11">
+                      <div class="form-row">
+                        <div class="col-auto align-self-center">
+                          <h6>Post Type:</h6>
+                        </div>
+                        <div class="col-auto">
+                          <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="post-type" id="img" value="img" checked>
+                            <label class="form-check-label" for="img">
+                              Image
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="post-type" id="gif" value="gif">
+                            <label class="form-check-label" for="gif">
+                              GIF
+                            </label>
+                          </div>
+                          <div class="form-check-inline">
+                            <input class="form-check-input" type="radio" name="post-type" id="word" value="word">
+                            <!-- need a function to determine name of input .. if postype word, else  -->
+                            <label class="form-check-label" for="word">
+                              Word
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-auto">
+                          <h6>Add a funny photo, gif, or a fairly unknown word for your friends to comment on.</h6>
+                        </div>
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-auto">
+                          <label for="post-description" id="post-type-label">
+                            URL:
+                          </label>
+                        </div>
+                        <div class="col-auto">
+                          <input type="text" name="post-description" id="description" class="longer-input">
+                        </div>
+                      </div>
+                      <div class="row justify-content-center my-2">
+                        <button type="submit" class="btn btn-primary">Make a Post!</button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+                <!-- end -->
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" id="headingThree">
+              <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree"
+                  aria-expanded="false" aria-controls="collapseThree">
+                  Collapsible Group Item #3
+                </button>
+              </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+              <div class="card-body">
+                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf
+                moon
+                officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
+                3
+                wolf
+                moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et.
+                Nihil
+                anim
+                keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan
+                excepteur
+                butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you
+                probably
+                haven't heard of them accusamus labore sustainable VHS.
+              </div>
+            </div>
           </div>
         </div>
-        <form onsubmit="app.controllers.userController.addUser(event)">
-          <div class="form-row align-items-center justify-content-around">
-            <div class="col-auto">
-              <label class="sr-only" for="inlineFormInput">User Name</label>
-              <input type="text" class="form-control mb-2" id="inlineFormInput" placeholder="What's your Username?"
-                name="name">
-            </div>
-            <div class="col-auto">
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
-            </div>
-          </div>
-        </form>
-        <div class="row" id="post-init">
-          <div class="col-12 mt-5 mb-5"></div>
-          <div class="col-12 text-center">
-            <h6>Create A Post</h6>
-          </div>
-        </div>
-        <form onsubmit="app.controllers.postController.addPost(event)">
-          <div class="row justify-content-center mt-2" id="post-input">
-            <div class="col-11">
-              <div class="form-row">
-                <div class="col-auto">
-                  <h6>Type of Post:</h6>
-                </div>
-                <div class="col-auto"></div>
-                <div class="col-auto">
-                  <div class="form-check-inline">
-                    <input class="form-check-input" type="radio" name="post-type" id="img" value="img" checked>
-                    <label class="form-check-label" for="img">
-                      Image
-                    </label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input class="form-check-input" type="radio" name="post-type" id="gif" value="gif">
-                    <label class="form-check-label" for="gif">
-                      GIF
-                    </label>
-                  </div>
-                  <div class="form-check-inline">
-                    <input class="form-check-input" type="radio" name="post-type" id="word" value="word">
-                    <!-- need a function to determine name of input .. if postype word, else  -->
-                    <label class="form-check-label" for="word">
-                      Word
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="row mt-2">
-                <div class="col-auto">
-                  <h6>Add a funny photo, gif, or a fairly unknown word for your friends to comment on.</h6>
-                </div>
-              </div>
-              <div class="row mt-2">
-                <div class="col-auto">
-                  <label for="post-description" id="post-type-label">
-                    URL:
-                  </label>
-                </div>
-                <div class="col-auto">
-                  <input type="text" name="post-description" id="description" class="longer-input">
-                </div>
-              </div>
-              <div class="row">
-                <button type="submit" class="btn btn-primary">Make a Post!</button>
-              </div>
-            </div>
-          </div>
-        </form>
+
       </div>
+      <!-- accordion -->
+
+
+
+
+
+
+
+
       <div class="col-9" id="main-page">
-        <div class="row">
-          <div class="col-3 p-3 rounded bg-info">
-            <!-- 
-              image
-              poster name
-              comments vote up vote down
-            -->
-            <div class="row">
-              <div class="col-5">
-                <h6>Poster Name:</h6>
+        <div class="row justify-content-center mt-3">
+
+          <div class="col-5 p-3 mb-2 mx-3 rounded bg-info">
+            <div class="row align-items-center justify-content-center pb-3">
+              <div class="col-3">
+                <h6>Poster:</h6>
               </div>
-              <div class="col-7" id="post-username"> placeholder username</div>
+              <div class="col-7 align-items-center" id="post-username">
+                <h6 class="text-center">username</h6>
+              </div>
             </div>
-            <div class="row">
+            <div class="row justify-content-center">
               <img src="http://placehold.it/200x200" alt="">
             </div>
 
@@ -117,11 +177,85 @@
                   <div class="col-1 bg-danger rounded-circle">V</div>
                   <div class="col-9">"This"</div>
                 </div>
-
-
               </div>
             </div>
           </div>
+
+          <div class="col-5 p-3 mb-2 mx-3 rounded bg-info">
+            <div class="row align-items-center justify-content-center pb-3">
+              <div class="col-3">
+                <h6>Poster:</h6>
+              </div>
+              <div class="col-7 align-items-center" id="post-username">
+                <h6 class="text-center">username</h6>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <img src="http://placehold.it/200x200" alt="">
+            </div>
+
+            <div class="row" id="post-comments">
+              <div class="col-12">
+                comment template
+                <div class="row justify-content-left">
+                  <div class="col-1 bg-success rounded-circle">^</div>
+                  <div class="col-1 bg-danger rounded-circle">V</div>
+                  <div class="col-9">"This"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-5 p-3 mb-2 mx-3 rounded bg-info">
+            <div class="row align-items-center justify-content-center pb-3">
+              <div class="col-3">
+                <h6>Poster:</h6>
+              </div>
+              <div class="col-7 align-items-center" id="post-username">
+                <h6 class="text-center">username</h6>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <img src="http://placehold.it/200x200" alt="">
+            </div>
+
+            <div class="row" id="post-comments">
+              <div class="col-12">
+                comment template
+                <div class="row justify-content-left">
+                  <div class="col-1 bg-success rounded-circle">^</div>
+                  <div class="col-1 bg-danger rounded-circle">V</div>
+                  <div class="col-9">"This"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-5 p-3 mb-2 mx-3 rounded bg-info">
+            <div class="row align-items-center justify-content-center pb-3">
+              <div class="col-3">
+                <h6>Poster:</h6>
+              </div>
+              <div class="col-7 align-items-center" id="post-username">
+                <h6 class="text-center">username</h6>
+              </div>
+            </div>
+            <div class="row justify-content-center">
+              <img src="http://placehold.it/200x200" alt="">
+            </div>
+
+            <div class="row" id="post-comments">
+              <div class="col-12">
+                comment template
+                <div class="row justify-content-left">
+                  <div class="col-1 bg-success rounded-circle">^</div>
+                  <div class="col-1 bg-danger rounded-circle">V</div>
+                  <div class="col-9">"This"</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
