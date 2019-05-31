@@ -16,7 +16,7 @@ export default class Post {
               </div>
             </div>
             <div class="row justify-content-center">
-              <img src="${this.url}" class="200h"alt="">
+              <img src="${this.url}" class="img-height" alt="">
             </div>
              <div class="row justify-content-center mt-2">
               <form onsubmit="app.controllers.commentController.addComment(event)">
