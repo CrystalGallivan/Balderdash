@@ -2,16 +2,23 @@ import CommentService from "../services/CommentService.js";
 
 let _commentService
 
-function _drawComment() {
-  let template = ''
-
+function _drawComments() {
+  let commentDict = _commentService.Comments
+  for (let postId in commentDict) {
+    if (postId == "undefined") continue //this is only here until corrupt data is gone
+    let template = ''
+    commentDict[postId].forEach(c => {
+      template += c.CommentTemplate
+    })
+    document.getElementById(`post${postId}-comments`).innerHTML = template
+  }
 }
 
 export default class CommentController {
   constructor(userService) {
     _commentService = new CommentService(userService)
-    _commentService.addSubscriber('comments', _drawComment)
-    _commentService.getComment()
+    _commentService.addSubscriber('comments', _drawComments)
+    _commentService.getComments()
   }
 
   addComment(event, postId) {
@@ -29,4 +36,7 @@ export default class CommentController {
   removeComment(commentId) {
     _commentService.removeComment(commentId)
   }
+  // upVote{
+  // _commentService.
+  // }
 }

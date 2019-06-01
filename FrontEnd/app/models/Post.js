@@ -30,7 +30,7 @@ export default class Post {
                 </div>
               </form>
             </div>
-            <div class="row" id="post-comments">
+            <div class="row" id="post${this.postId}-comments">
               <div class="col-12">
                 comment template
                 <div class="row justify-content-left ml-2">
@@ -40,7 +40,7 @@ export default class Post {
                   <div class="col-1 p-0 icon-bg align-content-center text-center"><img src="assets/img/svg/009-poo.svg"
                       class="img-fluid" alt="downvote">
                   </div>
-                  <div class="col-9">"This is the most beautiful thing"</div>
+                  <div class="col-9">This is a beautiful thing!</div>
                 </div>
               </div>
             </div>

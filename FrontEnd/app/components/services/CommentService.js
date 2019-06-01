@@ -6,7 +6,7 @@ const commentApi = axios.create({
 })
 let _userService = new UserService()
 let _state = {
-  comments: []
+  comments: {}
 }
 
 let _subscribers = {
@@ -23,7 +23,7 @@ export default class CommentService {
 
   }
 
-  get Comment() {
+  get Comments() {
     return _state.comments
   }
 
@@ -31,11 +31,20 @@ export default class CommentService {
     _subscribers[prop].push(fn)
   }
 
-  getComment() {
-    commentApi.get()
+  getComments() {
+    commentApi.get('')
       .then(res => {
-        let data = res.data.map(p => new Comment(p))
-        setState('comments', data)
+        let comments = res.data.map(p => new Comment(p))
+        let dict = {}
+        comments.forEach(c => {
+          if (!dict[c.postId]) {
+            dict[c.postId] = []
+          }
+          dict[c.postId].push(c)
+        })
+        setTimeout(() => {
+          setState('comments', dict)
+        }, 2000)
       })
       .catch(err => console.error(err))
   }
