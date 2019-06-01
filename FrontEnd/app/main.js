@@ -1,7 +1,9 @@
 import UserController from "./components/controllers/UserController.js";
 import PostController from "./components/controllers/PostController.js";
 import CommentController from "./components/controllers/CommentController.js";
-import UserService from "../..services/UserService.js"
+import UserService from "./components/services/UserService.js";
+
+
 
 let userService = new UserService()
 

@@ -3,7 +3,7 @@ export default class User {
     this.name = data.name || "User"
   }
 
-  get userTemplate() {
+  get UserTemplate() {
     return `Hello ${this.name}!`
   }
 }

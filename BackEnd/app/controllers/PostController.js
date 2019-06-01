@@ -17,7 +17,7 @@ export default class PostController {
 
   async getPost(req, res, next) {
     try {
-      let Post = await _repo.findById(req.params.id).populate('userId', "name")
+      let Post = await _repo.findById(req.params.id).populate("name")
       return res.send(Post)
     } catch (error) { next(error) }
   }

@@ -4,16 +4,16 @@ let _userService
 
 function _drawUser() {
   let user = _userService.User
-  let template = user.userTemplate
+  let template = user.UserTemplate
   document.getElementById('user-greeting').innerText = template
 }
 
 export default class UserController {
-  constructor() {
+  constructor(userService) {
+    _userService = userService
     _userService.addSubscriber('user', _drawUser)
     _userService.getUser()
-  } userService
-  _userService = userService
+  }
 
   findUser(event) {
     event.preventDefault()
