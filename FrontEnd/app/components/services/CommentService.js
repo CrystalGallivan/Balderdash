@@ -55,16 +55,29 @@ export default class CommentService {
       .then(res => {
         let newComment = new Comment(res.data)
         _state.comments.push(newComment)
-        this.getComment()
+        this.getComments()
       })
       .catch(err => console.error(err))
   }
+  upVote(id) {
+    commentApi.put(id + '/up')
+      .then(res => {
+        this.getComments()
+      })
+  }
+  downVote(id) {
+    commentApi.put(id + '/down')
+      .then(res => {
+        this.getComments()
+      })
+  }
+
 
   removeComment(commentId) {
     let comment = _state.comments.find(comment => comment.id == commentId)
     commentApi.delete(commentId, comment)
       .then(res => {
-        this.getComment()
+        this.getComments()
       })
       .catch(err => console.error(err))
   }

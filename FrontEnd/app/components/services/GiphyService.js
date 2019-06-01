@@ -1,5 +1,9 @@
+import Giphy from "../../models/Giphy";
+import { TIMEOUT } from "dns";
+
 const giphyApi = axios.create({
-  baseURL: 'api.giphy.com'
+  baseURL: 'http://api.giphy.com/v1/gifs/random?api_key=Dg89Yl6yJ6vKf6f4JQZTEdUMJNsflWtW',
+  timeout: 3000
 })
 
 let _userService
@@ -17,7 +21,7 @@ function setState(prop, data) {
   _subscribers[prop].forEach(fn => fn())
 }
 
-export default class giphyService {
+export default class GiphyService {
   constructor(userService) {
     _userService = userService
   }
@@ -34,7 +38,8 @@ export default class giphyService {
     giphyApi.get()
       .then(res => {
         console.log(res)
-        let data = res.data.map(p => new giphy(p))
+        let data = res.data.map(g => new
+          Giphy(g))
         setState('giphys', data)
       })
       .catch(err => console.error(err))

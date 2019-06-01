@@ -32,6 +32,12 @@ export default class CommentController {
     form.reset()
     _commentService.addComment(comment)
   }
+  upVote(id) {
+    _commentService.upVote(id)
+  }
+  downVote(id) {
+    _commentService.downVote(id)
+  }
 
   removeComment(commentId) {
     _commentService.removeComment(commentId)

@@ -12,7 +12,8 @@ export default class CommentController {
       .get('/:postId/post-comments', this.getCommentsByPost)
       .post('', this.createComment)
       .delete('/:id', this.deleteComment)
-      .put('/:id', this.voteComment)
+      .put('/:id/up', this.upVote)
+      .put('/:id/down', this.downVote)
       .use('*', this.defaultRoute)
   }
   async  getCommentsByPost(req, res, next) {
@@ -45,12 +46,20 @@ export default class CommentController {
       return res.send('Comment Deleted')
     } catch (error) { next(error) }
   }
-  async voteComment(req, res, next) {
+  async upVote(req, res, next) {
     try {
-      let comment = await _repo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
-      if (comment) {
-        return res.send(comment)
-      } throw new Error('Invalid Comment')
+      let comment = await _repo.findById(req.params.id)
+      comment.upVotes++
+      await comment.save()
+      return res.send(comment)
+    } catch (error) { next(error) }
+  }
+  async downVote(req, res, next) {
+    try {
+      let comment = await _repo.findById(req.params.id)
+      comment.downVotes--
+      await comment.save()
+      return res.send(comment)
     } catch (error) { next(error) }
   }
   defaultRoute(req, res, send) {

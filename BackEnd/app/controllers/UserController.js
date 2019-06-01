@@ -30,8 +30,14 @@ export default class UserController {
       return res.send(users)
     } catch (error) {
       next(error)
-
     }
+  }
+
+  async deleteUser(req, res, next) {
+    try {
+      let user = await _repo.findByIdAndDelete(req.params.id)
+      return res.send('User Deleted')
+    } catch (error) { next(error) }
   }
   async createUser(req, res, next) {
     try {
