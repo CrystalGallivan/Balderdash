@@ -18,7 +18,9 @@ body{
 
 .img-height{
   height: 200px;
-}
+  border: 2px solid #59c3c3;
+  }
+ 
 
 .img-fluid{
   max-width: 80%;
@@ -35,13 +37,17 @@ body{
 }
 
 .bg-info{
-  background-color: #16dfff2b!important;
+  background-color: #4062BB!important;
 }
 
 .icon-bg {
-  background: radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 70%);
+  
 }
 
 .border{
-  border: 10px solid #16dfff!important
+  border: 10px solid #EBEBEB!important;
+}
+
+.btn-primary{
+ background-color: #4062BB;
 }
