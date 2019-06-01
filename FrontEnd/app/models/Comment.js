@@ -21,8 +21,7 @@ export default class Comment {
         <div class="col-6">
         <p class="comment-size">${this.comment}</p></div>
       </div>
-    </div>
-                `
+    </div>`
   }
 }
 

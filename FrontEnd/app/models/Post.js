@@ -23,7 +23,6 @@ export default class Post {
             <div class="row justify-content-center mt-2">
               <form onsubmit="app.controllers.commentController.addComment(event, '${this.postId}')">
                 <div class="form-row">
-                  <div class="col-1">button</div>
                   <div class="col-auto">
                     <input type="text" name="comment" class="post-input">
                   </div>
