@@ -3,7 +3,7 @@
 }
 
 body{
-  background-color: rgba(24, 18, 18, 0.712);
+  background-color: rgba(0, 0, 0, 0.883);
   color: white;
 }
 
@@ -21,11 +21,27 @@ body{
 }
 
 .img-fluid{
-  max-width: 95%;
-  height: 2rem;
+  max-width: 80%;
+  height: 1.5rem;
 }
 
 .icon{
   max-width: 100%;
   height: 3rem;
+}
+
+.btn-link{
+  color: #fff;
+}
+
+.bg-info{
+  background-color: #16dfff2b!important;
+}
+
+.icon-bg {
+  background: radial-gradient(circle, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 70%);
+}
+
+.border{
+  border: 10px solid #16dfff!important
 }
