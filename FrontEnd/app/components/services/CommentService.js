@@ -18,6 +18,10 @@ function setState(prop, data) {
 }
 
 export default class CommentService {
+  constructor(userService) {
+
+  }
+
   get Comment() {
     return _state.comments
   }
@@ -36,7 +40,7 @@ export default class CommentService {
   }
 
   addComment(postId) {
-    commentApi.comment('', comment)
+    commentApi.comment('', postId)
       .then(res => {
         let newComment = new Comment(res.data)
         _state.comments.push(newComment)

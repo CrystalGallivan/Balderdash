@@ -1,6 +1,6 @@
 import CommentService from "../services/CommentService.js";
 
-const _commentService = new CommentService()
+let _commentService
 
 function _drawComment() {
   let template = ''
@@ -8,7 +8,8 @@ function _drawComment() {
 }
 
 export default class CommentController {
-  constructor() {
+  constructor(userService) {
+    _commentService = new CommentService(userService)
     _commentService.addSubscriber('comments', _drawComment)
     _commentService.getComment()
   }
@@ -21,7 +22,7 @@ export default class CommentController {
       comment: form.comment.value
     }
     form.reset()
-    _commentService.addComment(postId)
+    _commentService.addComment(comment)
   }
 
   removeComment(commentId) {

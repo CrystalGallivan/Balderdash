@@ -7,14 +7,14 @@ function _drawPost() {
   let template = ''
   post.forEach(post => {
     template += post.postTemplate
-  })userService
-  _postService = new PostService(userService)
+  })
   document.getElementById('post-body').innerHTML = template
 
 }
 
 export default class PostController {
-  constructor() {
+  constructor(userService) {
+    _postService = new PostService(userService)
     _postService.addSubscriber('posts', _drawPost)
     _postService.getPost()
   }
