@@ -1,13 +1,14 @@
 import PostService from "../services/PostService.js";
 
-const _postService = new PostService()
+let _postService
 
 function _drawPost() {
   let post = _postService.Post
   let template = ''
   post.forEach(post => {
     template += post.postTemplate
-  })
+  })userService
+  _postService = new PostService(userService)
   document.getElementById('post-body').innerHTML = template
 
 }

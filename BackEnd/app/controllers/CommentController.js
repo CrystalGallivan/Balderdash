@@ -17,7 +17,7 @@ export default class CommentController {
   }
   async  getCommentsByPost(req, res, next) {
     try {
-      let comments = await _repo.find({ postId: req.params.postId }).populate('authorId', "name")
+      let comments = await _repo.find({ postId: req.params.postId })
       return res.send(comments)
     } catch (error) { next(error) }
   }

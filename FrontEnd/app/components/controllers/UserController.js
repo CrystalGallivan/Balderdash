@@ -1,6 +1,6 @@
 import UserService from "../services/UserService.js";
 
-const _userService = new UserService()
+let _userService
 
 function _drawUser() {
   let user = _userService.User
@@ -12,7 +12,8 @@ export default class UserController {
   constructor() {
     _userService.addSubscriber('user', _drawUser)
     _userService.getUser()
-  }
+  } userService
+  _userService = userService
 
   findUser(event) {
     event.preventDefault()

@@ -40,8 +40,9 @@ export default class UserService {
     userApi.get()
       .then(res => {
         let data = res.data.map(u => new User(u))
-        data.filter(user => data.user.name == name)
-        setState('user', data)
+        debugger
+        let myUser = data.find(user => user.name == name)
+        setState('user', myUser)
       })
       .catch(err => console.error(err))
   }
