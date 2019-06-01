@@ -14,12 +14,13 @@ export default class CommentController {
     _commentService.getComment()
   }
 
-  addComment(event) {
+  addComment(event, postId) {
     event.preventDefault()
     var form = event.target
     var comment = {
       //might need to change
-      comment: form.comment.value
+      description: form.comment.value,
+      postId
     }
     form.reset()
     _commentService.addComment(comment)

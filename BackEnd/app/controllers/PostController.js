@@ -23,11 +23,10 @@ export default class PostController {
   }
   async getAllPosts(req, res, next) {
     try {
-      let Posts = await _repo.find({})
+      let Posts = await _repo.find({}).populate('userId')
       return res.send(Posts)
     } catch (error) {
       next(error)
-
     }
   }
   async createPost(req, res, next) {

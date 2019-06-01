@@ -36,6 +36,7 @@ export default class PostService {
   getPost() {
     postApi.get()
       .then(res => {
+        console.log(res)
         let data = res.data.map(p => new Post(p))
         setState('posts', data)
       })
@@ -46,8 +47,8 @@ export default class PostService {
     post.userId = _userService.User._id
     postApi.post('', post)
       .then(res => {
-        let newPost = new Post(res.data)
-        _state.posts.push(newPost)
+        // let newPost = new Post(res.data)
+        _state.posts.push(res.data)
         this.getPost()
       })
       .catch(err => console.error(err))

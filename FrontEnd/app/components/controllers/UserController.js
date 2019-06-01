@@ -3,9 +3,14 @@ import UserService from "../services/UserService.js";
 let _userService
 
 function _drawUser() {
+
   let user = _userService.User
   let template = user.UserTemplate
-  document.getElementById('user-greeting').innerText = template
+  if (template == undefined) {
+    document.getElementById('user-greeting').innerText = 'Hello Friend!!'
+  } else {
+    document.getElementById('user-greeting').innerText = template
+  }
 }
 
 export default class UserController {

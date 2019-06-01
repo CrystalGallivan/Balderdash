@@ -19,8 +19,9 @@ function setState(prop, data) {
 
 export default class UserService {
   get User() {
-    debugger
     return _state.user
+
+
   }
 
   addSubscriber(prop, fn) {
@@ -37,12 +38,13 @@ export default class UserService {
   }
 
   findMyUser(name) {
-    userApi.get()
+    userApi.get('/' + name.name)
       .then(res => {
-        let data = res.data.map(u => new User(u))
-        debugger
-        let myUser = data.find(user => user.name == name)
-        setState('user', myUser)
+        console.log(res.data)
+        let data = new User(res.data)
+        // debugger
+        // let myUser = data.filter(i => user.name == user.name)
+        setState('user', data)
       })
       .catch(err => console.error(err))
   }

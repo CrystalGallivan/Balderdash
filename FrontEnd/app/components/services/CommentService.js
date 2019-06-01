@@ -1,9 +1,10 @@
 import Comment from "../../models/Comment.js";
+import UserService from "./UserService.js";
 
 const commentApi = axios.create({
   baseURL: '//localhost:3000/api/comments'
 })
-
+let _userService = new UserService()
 let _state = {
   comments: []
 }
@@ -39,8 +40,9 @@ export default class CommentService {
       .catch(err => console.error(err))
   }
 
-  addComment(postId) {
-    commentApi.comment('', postId)
+  addComment(comment) {
+    comment.authorId = _userService.User._id
+    commentApi.post('', comment)
       .then(res => {
         let newComment = new Comment(res.data)
         _state.comments.push(newComment)
