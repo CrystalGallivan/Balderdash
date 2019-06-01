@@ -1,8 +1,11 @@
 import Post from "../../models/Post.js";
 
+
 const postApi = axios.create({
   baseURL: '//localhost:3000/api/posts'
 })
+
+let _userService
 
 let _state = {
   posts: []
@@ -18,6 +21,10 @@ function setState(prop, data) {
 }
 
 export default class PostService {
+  constructor(userService) {
+    _userService = userService
+  }
+
   get Post() {
     return _state.posts
   }
@@ -36,6 +43,7 @@ export default class PostService {
   }
 
   addPost(post) {
+    post.userId = _userService.User._id
     postApi.post('', post)
       .then(res => {
         let newPost = new Post(res.data)

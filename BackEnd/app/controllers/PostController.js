@@ -17,7 +17,7 @@ export default class PostController {
 
   async getPost(req, res, next) {
     try {
-      let Post = await _repo.findById(req.params.id)
+      let Post = await _repo.findById(req.params.id).populate('userId', "name")
       return res.send(Post)
     } catch (error) { next(error) }
   }
@@ -33,7 +33,7 @@ export default class PostController {
   async createPost(req, res, next) {
     try {
       let Post = await _repo.create(req.body)
-      return res.status(201).send(Post).populate(user)
+      return res.status(201).send(Post)
     } catch (error) { next(error) }
   }
   async deletePost(req, res, next) {
