@@ -16,15 +16,15 @@ export default class CommentController {
       .put('/:id/down', this.downVote)
       .use('*', this.defaultRoute)
   }
-  async  getCommentsByPost(req, res, next) {
-    try {
-      let comments = await _repo.find({ postId: req.params.postId })
-      return res.send(comments)
-    } catch (error) { next(error) }
-  }
   async getAllComments(req, res, next) {
     try {
       let comments = await _repo.find({})
+      return res.send(comments)
+    } catch (error) { next(error) }
+  }
+  async  getCommentsByPost(req, res, next) {
+    try {
+      let comments = await _repo.find({ postId: req.params.postId })
       return res.send(comments)
     } catch (error) { next(error) }
   }
