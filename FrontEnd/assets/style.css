@@ -19,6 +19,7 @@ body{
 .img-height{
   height: 200px;
   border: 2px solid #59c3c3;
+  max-width: 90%;
   }
  
 

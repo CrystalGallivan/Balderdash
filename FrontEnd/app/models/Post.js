@@ -24,24 +24,13 @@ export default class Post {
               <form onsubmit="app.controllers.commentController.addComment(event, '${this.postId}')">
                 <div class="form-row">
                   <div class="col-auto">
-                    <input type="text" name="comment" class="post-input">
+                    <input type="text" name="comment">
                   </div>
                 </div>
               </form>
             </div>
             <div class="row" id="post${this.postId}-comments">
-              <div class="col-12">
-                comment template
-                <div class="row justify-content-left ml-2">
-                  <div class="col-1 p-0 mr-1 icon-bg align-content-center text-center"><img
-                      src="assets/img/svg/008-funny.svg" class="img-fluid" alt="upvote">
-                  </div>
-                  <div class="col-1 p-0 icon-bg align-content-center text-center"><img src="assets/img/svg/009-poo.svg"
-                      class="img-fluid" alt="downvote">
-                  </div>
-                  <div class="col-9">This is a beautiful thing!</div>
-                </div>
-              </div>
+              
             </div>
           </div>`
   }
